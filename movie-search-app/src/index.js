@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import SearchMovies from "./searchMovies"
-
+// eslint-disable-next-line
 import styles from './master.css'
 
 
