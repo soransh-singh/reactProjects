@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Roboto:wght@500&display=swap');
 html{
   font-size: 10px;
 }
 
 *{
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
 body{
@@ -17,15 +19,20 @@ p{
 
 small{
   font-size: 1.2rem;
+  font-weight: 800;
 }
 
 .container{
   margin: 0 auto;
   max-width: 1000px;
-  padding: 40px;
+  padding: 2rem;
 }
 
+
+
 .title{
+  font-family: 'Luckiest Guy', cursive;
+  letter-spacing: 4px;
   text-align: center;
   font-size: 4rem;
 }
@@ -52,6 +59,8 @@ small{
 }
 
 .button{
+  font-family: 'Luckiest Guy', cursive;
+  letter-spacing: 2px;
   background-color: rgba(0, 0, 0, 0.75);
   color: white;
   padding: 1rem 3rem;
@@ -66,19 +75,28 @@ small{
   background-color: rgba(0, 0, 0, 0.85);
 }
 
-.car-list{
+.card-list{
   margin-top: 4rem;
 }
 
 .card{
+  display: grid;
   padding: 2rem 4rem;
   border-radius: 10px;
   box-shadow: 1px 1px 5px rgba(0,0,0, .5);
-  margin-bottom: 2rem;
+  margin: 3rem auto;
   background-color: white;
+  transition: all 0.2s linear;
+}
+
+.card:hover{
+  box-shadow: 10px 10px 20px 5px rgba(0,0,0, .5), inset 1px 1px 5px rgba(0,0,0, .5);
+
 }
 
 .card--title{
+  font-family: 'Luckiest Guy', cursive;
+  letter-spacing: 4px;
   margin-right: 0.5rem;
   font-size: 3.2rem;
 }
@@ -89,6 +107,10 @@ small{
 }
 
 @media (min-width: 786px) {
+  .card{
+    grid-template-columns: auto auto;
+    grid-gap: 4rem;
+  }
   .form{
     grid-template-columns: auto 1fr auto;
     grid-gap: 1rem;
