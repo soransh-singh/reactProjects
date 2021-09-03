@@ -34,8 +34,10 @@ function App() {
       }, 1000)
     }else if (timeRemain === 0) {
       setIsTimer(false)
-      setWordCount(countWord(text))
+      const noOfWord = countWord(text)
+      setWordCount(noOfWord)
     }
+    // eslint-disable-next-line
   }, [timeRemain, isTimer])
 
 
