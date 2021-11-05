@@ -1,3 +1,5 @@
+import {useState} from 'react'
+
 // import images
 import supervisor from './images/icon-supervisor.svg'
 import karma from './images/icon-karma.svg'
@@ -6,11 +8,14 @@ import calculator from './images/icon-calculator.svg'
 
 //components
 import Card from './Card'
-
+import Theme from './Theme'
 
 function App() {
+  const [dark, setDark] = useState('')
+
   return (
-    <div className="App">
+    <div className={`App ${dark}`}>
+      <Theme update={setDark} />
       <header>
         <h1>Reliable, efficient delivery</h1>
         <h2>Powered by Technology</h2>

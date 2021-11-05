@@ -3,8 +3,28 @@
   --cyan: hsl(180, 62%, 55%);
   --orange: hsl(34, 97%, 64%);
   --blue: hsl(212, 86%, 64%);
+
+
   font-size: 15px;
 }
+
+.theme-dark{
+  --bg-clr-body: hsl(230, 17%, 14%);
+  --bg-clr-card:hsl(228, 28%, 20%);
+  --bg-clr-card-hvr: hsl(228, 18%, 15%);
+  --text-clr-pr: hsl(234, 12%, 84%);
+  --text-clr-sec: hsl(229, 6%, 45%);
+}
+
+/*
+  major colors:
+  primary-text-color: hsl(234, 12%, 34%)
+  sec-text-color: hsl(229, 6%, 66%)
+
+  major bg colors:
+  body-bg-clr: white;
+  card-bg-clr: white;
+ */
 
 *{
   box-sizing: border-box;
@@ -12,10 +32,23 @@
 
 body{
   margin: 0;
+  padding: 0;
   min-height: 100vh;
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
   text-align: center;
+}
+
+.root{
+  padding: 0;
+  margin: 0;
+}
+
+.App{
+  background-color: var(--bg-clr-body, #fff);
+  position: absolute;
+  width: 100%;
+  padding-top: 2rem;
 }
 
 img{
@@ -38,13 +71,19 @@ header p{
 }
 
 p{
-  color: hsl(229, 6%, 66%);
+  color: var(--text-clr-sec, hsl(229, 6%, 66%));
+  /* secondary text color */
+}
+
+h1,h2,h3{
+  color: var(--text-clr-pr, hsl(234, 12%, 34%));
+  /* primary text color */
 }
 
 h1,h2{
   font-size: 1.75rem;
-  color: hsl(234, 12%, 34%);
 }
+
 
 h1{
   font-weight: 400;
@@ -61,9 +100,23 @@ h2{
   justify-content: center;
 }
 
+/* Toggle button */
+.toggle{
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+.toggle button{
+  background-color: var(--bg-clr-body, #fff);
+  padding: .25rem;
+  border-radius: 4px;
+}
+
 /* Card  */
 
 .card{
+  background-color: var(--bg-clr-card, #fff);
   margin: 1rem;
   margin-bottom: 2rem;
   padding: 1rem 1.5rem;
@@ -79,6 +132,10 @@ h2{
   overflow: hidden;
   z-index: 1;
   cursor: pointer;
+}
+
+.card:hover{
+  background-color: var(--bg-clr-card-hvr, #fff);
 }
 
 .card::before{
@@ -102,10 +159,6 @@ h2{
   transform: scale(0.95);
 }
 
-.card h3{
-  color: hsl(234, 12%, 34%);
-}
-
 .card>*+*{
   margin-top: 1rem;
 }
@@ -123,6 +176,9 @@ h2{
 /* Media queries to change grid layout  */
 
 @media (min-width:650px) {
+  .App{
+    padding-top: 1rem;
+  }
   .container{
     max-width: 900px;
     grid-template-columns: auto auto;
