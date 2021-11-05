@@ -1,0 +1,150 @@
+:root{
+  --red: hsl(0, 78%, 62%);
+  --cyan: hsl(180, 62%, 55%);
+  --orange: hsl(34, 97%, 64%);
+  --blue: hsl(212, 86%, 64%);
+  font-size: 15px;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  text-align: center;
+}
+
+img{
+  display: block;
+  max-width: 100%;
+}
+
+h1,h2,h3,p{
+  margin: 0;
+}
+
+header{
+  margin-top: 2rem;
+}
+
+header p{
+  max-width: 550px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+p{
+  color: hsl(229, 6%, 66%);
+}
+
+h1,h2{
+  font-size: 1.75rem;
+  color: hsl(234, 12%, 34%);
+}
+
+h1{
+  font-weight: 400;
+}
+
+h2{
+  font-weight: 600;
+}
+
+.container{
+  max-width: 1200px;
+  margin: 2rem auto;
+  display: grid;
+  justify-content: center;
+}
+
+/* Card  */
+
+.card{
+  margin: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem 1.5rem;
+  max-width: 360px;
+  text-align: left;
+  border-top: solid 4px var(--bd-clr, black);
+  border-radius: .5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 16px hsla(0, 0%, 10%, 0.5);
+  transition: all 0.3s linear;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.card::before{
+  position: absolute;
+  content: " ";
+  z-index: -1;
+  width: 100%;
+  height: 20px;
+  background-color: var(--bd-clr, black);
+  left: 0;
+  bottom: 0;
+  transform: translateX(-100%);
+  transition: all 0.3s ease-out;
+}
+
+.card:hover::before{
+  transform: none;
+}
+
+.card:active{
+  transform: scale(0.95);
+}
+
+.card h3{
+  color: hsl(234, 12%, 34%);
+}
+
+.card>*+*{
+  margin-top: 1rem;
+}
+
+.card__img{
+  margin: 1rem;
+  align-self: flex-end;
+}
+
+.card--supervisor{--bd-clr: var(--red)}
+.card--karma{--bd-clr: var(--cyan)}
+.card--team-builder{--bd-clr: var(--orange)}
+.card--calculator{--bd-clr: var(--blue)}
+
+/* Media queries to change grid layout  */
+
+@media (min-width:650px) {
+  .container{
+    max-width: 900px;
+    grid-template-columns: auto auto;
+    justify-content: space-around;
+  }
+}
+
+@media (min-width: 1000px) {
+  .container{
+    max-width: 1200px;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 1em;
+    grid-template-areas:
+      ". one ."
+      "two one three"
+      "two four three"
+      ". four .";
+  }
+
+  .card--supervisor{grid-area: one;}
+  .card--karma{grid-area: two;}
+  .card--team-builder{grid-area: three;}
+  .card--calculator{grid-area: four;}
+
+}
